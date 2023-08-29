@@ -1,4 +1,5 @@
 import { IsString, IsNotEmpty} from "class-validator";
+import { CreateUserDto } from "src/modules/user/dto/create-user.dto";
 
 export class CreateProfileDto {
     @IsString()
@@ -10,5 +11,9 @@ export class CreateProfileDto {
     @IsString()
     @IsNotEmpty()
     city: string;
+
+    
+    
+    user:CreateUserDto
 
 }

@@ -8,9 +8,6 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
 import { User } from './modules/user/entities/user.entity';
 import { Profile } from './modules/profile/entities/profile.entity';
 
-
-
-
 const config: PostgresConnectionOptions = {
   type: 'postgres',
   host: 'localhost',
@@ -18,20 +15,14 @@ const config: PostgresConnectionOptions = {
   username: 'user_1',
   password: '12345',
   database: 'test3_nest',
-  // entities: [__dirname + '../src/modules/**/entities/*.entity'], // Changed path to entities
-  entities:[User, Profile],
+  entities: [User, Profile],
+  // entities: [__dirname + '/../modules/**/entities/*.entity.{ts,js}'], // Changed path to entities
   synchronize: true,
 };
 
-
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(config),
-    UserModule,
-    ProfileModule,
-  ],
+  imports: [TypeOrmModule.forRoot(config), UserModule, ProfileModule],
   controllers: [AppController],
   providers: [AppService],
 })
-
 export class AppModule {}
