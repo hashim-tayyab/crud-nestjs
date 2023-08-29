@@ -33,4 +33,5 @@ export class ProfileController {
   remove(@Param('id') id: string) {
     return this.profileService.remove(+id);
   }
+
 }
